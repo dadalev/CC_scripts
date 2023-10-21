@@ -1,10 +1,10 @@
 print("Start")
 
-print("Enter repository name:")
-local repoName = read()
+write("Enter repository name:")
+local repoName = io.read()
 
-print("Enter file name:")
-local fileName = read()
+write("Enter file name:")
+local fileName = io.read()
 
 local function runGit()
     fs.delete(fileName .. ".lua")
