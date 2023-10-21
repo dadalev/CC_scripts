@@ -1,17 +1,13 @@
-print("Start")
-
-write("Enter repository name:")
-local repoName = io.read()
-
-write("Enter file name:")
-local fileName = io.read()
-
-local function runGit()
+local function runGit(repoName, fileName)
     fs.delete(fileName .. ".lua")
-    shell.run("wget https://github.com/dadalev/" .. repoName .. "/raw/main/" .. fileName .. ".lua")
+    shell.run("wget https://github.com/" .. repoName .. "/raw/main/" .. fileName .. ".lua")
     shell.run(fileName .. ".lua")
 end
 
-runGit()
+write("Enter repository name:")
+local myRepoName = io.read()
 
-print("End")
+write("Enter file name:")
+local myFileName = io.read()
+
+runGit(myRepoName, myFileName)
