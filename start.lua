@@ -17,13 +17,13 @@ local myFileName = "setup"
 
 write("Enter repository name:")
 local userInput = io.read()
-if ~userInputEmpty(userInput) then
+if not userInputEmpty(userInput) then
     myRepoName = userInput
 end
 
 write("Enter file name:")
 userInput = io.read()
-if ~userInputEmpty(userInput) then
+if not userInputEmpty(userInput) then
     myFileName = userInput
 end
 
