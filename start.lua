@@ -11,5 +11,4 @@ end
 
 runGit()
 
-print("newTest")
 print("End")
