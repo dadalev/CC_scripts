@@ -182,13 +182,13 @@ local function loadTextColors()
     for monitor in pairs(trades) do
         for villager in pairs(trades[monitor]) do
             for trade in pairs(trades[monitor][villager]) do
-                trades[monitor][villager][trade][2] = colors.white
-
                 if trades == 5 then
-                    trades[monitor][villager][trade][3] = colors.purple
+                    trades[monitor][villager][trade][2] = colors.purple
                 else
-                    trades[monitor][villager][trade][3] = colors.black
+                    trades[monitor][villager][trade][2] = colors.white
                 end
+
+                trades[monitor][villager][trade][3] = colors.black
 
                 trades[monitor][villager][trade][4] = false
             end
