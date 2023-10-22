@@ -127,7 +127,7 @@ local function setupMonitors()
     for _,mon in pairs(monitors) do
       mon.clear()
       mon.setTextScale(1)
-      mon.setTextColor(colors.gray)
+      mon.setTextColor(colors.blue)
       mon.setBackgroundColor(colors.black)
     end
 end
@@ -185,10 +185,10 @@ local function loadTextColors()
                 if trades == 5 then
                     trades[monitor][villager][trade][2] = colors.purple
                 else
-                    trades[monitor][villager][trade][2] = colors.white
+                    trades[monitor][villager][trade][2] = colors.yellow
                 end
 
-                trades[monitor][villager][trade][3] = colors.black
+                trades[monitor][villager][trade][3] = colors.gray
 
                 trades[monitor][villager][trade][4] = false
             end
@@ -196,7 +196,7 @@ local function loadTextColors()
     end
 end
 
-print("v1.0.0")
+print("v1.0.1")
 loadTextColors()
 setupMonitors()
 reloadText()
