@@ -156,8 +156,15 @@ local function setupMonitors()
     for _,mon in pairs(monitors) do
       mon.clear()
       mon.setTextScale(1)
-      mon.setBackgroundColor(colors.black)
       mon.setTextColor(colors.white)
+      mon.setBackgroundColor(colors.black)
+    end
+end
+
+local function changeMonitorColors(textColor, backgroundColor)
+    for _,mon in pairs(monitors) do
+      mon.setTextColor(textColor)
+      mon.setBackgroundColor(colors.backgroundColor)
     end
 end
 
@@ -170,8 +177,14 @@ local function write(list)
                 else
                     monitors[monitor].setCursorPos(((villager-1)*10.5),trade)
                 end
-                --monitors[monitor].write("test " .. villager .. " " .. trade)
-                monitors[monitor].write(trades[monitor][villager][trade][2])
+
+                if trade == 5 then
+                    changeMonitorColors(colors.white, colors.black)
+                else
+                    changeMonitorColors(colors.red, colors.gray)
+                end
+
+                monitors[monitor].write(trades[monitor][villager][trade][1])
             end
         end
     end
