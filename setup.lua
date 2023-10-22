@@ -168,10 +168,10 @@ local function changeMonitorColors(textColor, backgroundColor)
     end
 end
 
-local function write(list)
-    for monitor,mon in pairs(list) do
-        for villager,vil in pairs(list[monitor]) do
-            for trade,tra in pairs(list[monitor][villager]) do
+local function write()
+    for monitor,mon in pairs(trades) do
+        for villager,vil in pairs(trades[monitor]) do
+            for trade,tra in pairs(trades[monitor][villager]) do
                 if villager == 1 then
                     monitors[monitor].setCursorPos(1,trade)
                 else
@@ -184,20 +184,20 @@ local function write(list)
                     changeMonitorColors(colors.white, colors.black)
                 end
 
-                monitors[monitor].write(list[monitor][villager][trade][1])
+                monitors[monitor].write(trades[monitor][villager][trade][1])
             end
         end
     end
 end
 
-local function lookupEnchant(list)
+local function lookupEnchant()
     write("Lookup enchant: ")
     local userInput = io.read()
 
-    for monitor,mon in pairs(list) do
-        for villager,vil in pairs(list[monitor]) do
-            for trade,tra in pairs(list[monitor][villager]) do
-                if string.match(list[monitor][villager][trade][1], userInput) then
+    for monitor,mon in pairs(trades) do
+        for villager,vil in pairs(trades[monitor]) do
+            for trade,tra in pairs(trades[monitor][villager]) do
+                if string.match(trades[monitor][villager][trade][1], userInput) then
                     print("monitor: " .. monitor .. ",   villager: " .. villager .. ",   trade: " .. trade)
                 end
             end
@@ -206,5 +206,5 @@ local function lookupEnchant(list)
 end
 
 setupMonitors()
-write(trades)
-lookupEnchant(trades)
+write()
+lookupEnchant()
