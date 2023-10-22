@@ -127,6 +127,7 @@ local function setupMonitors()
     for _,mon in pairs(monitors) do
       mon.clear()
       mon.setTextScale(1)
+      mon.setBackgroundColor(colors.black)
     end
 end
 
@@ -194,7 +195,7 @@ local function loadTextColors()
     end
 end
 
-print("v1.0.2")
+print("v1.0.3")
 loadTextColors()
 setupMonitors()
 reloadText()
