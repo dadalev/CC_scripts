@@ -212,7 +212,8 @@ local function loopLookupEnchant()
     end
 end
 
-print("v1.1.1")
+shell.run("clear")
+print("v1.1.2")
 print("type reload => reloads program")
 print("type stop => ends program")
 
