@@ -1,3 +1,5 @@
+local version = "v1.1.7"
+
 local monitors = {
     peripheral.wrap("monitor_9"),
     peripheral.wrap("monitor_10"),
@@ -182,8 +184,8 @@ local function loopLookupEnchant()
         if userInput == "reload" or userInput == "reset" or userInput == "stop" then
             if userInput == "reload" then
                 shell.run("clear")
-                
-                print("reloaded v1.1.6")
+
+                print("reloaded " .. version)
                 print("type reload => reloads program")
                 print("type stop => ends program")
 
@@ -217,7 +219,7 @@ local function loopLookupEnchant()
 end
 
 shell.run("clear")
-print("start v1.1.6")
+print("start " .. version)
 print("type reload => reloads program")
 print("type stop => ends program")
 
