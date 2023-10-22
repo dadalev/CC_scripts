@@ -15,9 +15,9 @@ end
 
 clear()
 
-local function write( ... )
-    for _,mon in pairs( monitors ) do
-      mon.write( ... )
+local function write(text)
+    for _,mon in pairs(monitors) do
+      mon.write(text)
     end
 end
 
