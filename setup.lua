@@ -181,30 +181,28 @@ local function loopLookupEnchant()
 
         if userInput == "reload" then
             loadTextColors()
-            return
-        end
+        else
+            if userInput == "stop" then
+                runLoop = false
+            else
+                for monitor in pairs(trades) do
+                    for villager in pairs(trades[monitor]) do
+                        for trade in pairs(trades[monitor][villager]) do
+                            if string.match(
+                                    string.lower(trades[monitor][villager][trade][1]), 
+                                    string.lower(userInput)
+                                ) then
+                                print("monitor: " .. monitor .. ",   villager: " .. villager .. ",   trade: " .. trade)
 
-        if userInput == "stop" then
-            runLoop = false
-            return
-        end
+                                if trades[monitor][villager][trade][2] == colors.purple then
+                                    trades[monitor][villager][trade][2] = colors.orange
+                                else
+                                    trades[monitor][villager][trade][2] = colors.red
+                                end
 
-        for monitor in pairs(trades) do
-            for villager in pairs(trades[monitor]) do
-                for trade in pairs(trades[monitor][villager]) do
-                    if string.match(
-                            string.lower(trades[monitor][villager][trade][1]), 
-                            string.lower(userInput)
-                        ) then
-                        print("monitor: " .. monitor .. ",   villager: " .. villager .. ",   trade: " .. trade)
-
-                        if trades[monitor][villager][trade][2] == colors.purple then
-                            trades[monitor][villager][trade][2] = colors.orange
-                        else
-                            trades[monitor][villager][trade][2] = colors.red
+                                reloadText()
+                            end
                         end
-
-                        reloadText()
                     end
                 end
             end
@@ -213,7 +211,7 @@ local function loopLookupEnchant()
 end
 
 shell.run("clear")
-print("v1.1.2")
+print("v1.1.3")
 print("type reload => reloads program")
 print("type stop => ends program")
 
