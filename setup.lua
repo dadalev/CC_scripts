@@ -118,9 +118,10 @@ local trades = {
     },
 }
 
---trades[monitor][villager][trade][1] enchant
---trades[monitor][villager][trade][2] textColor
---trades[monitor][villager][trade][3] backgroundColor
+--trades[monitor][villager][trade][1] string        enchant
+--trades[monitor][villager][trade][2] colors.white  textColor
+--trades[monitor][villager][trade][3] colors.black  backgroundColor
+--trades[monitor][villager][trade][4] false         -
 
 local function setupMonitors()
     for _,mon in pairs(monitors) do
@@ -148,12 +149,6 @@ local function reloadText()
                     monitors[monitor].setCursorPos(((villager-1)*10.5),trade)
                 end
 
-                if trade == 5 then
-                    changeColors(colors.purple, colors.black)
-                else
-                    changeColors(colors.white, colors.black)
-                end
-
                 changeColors(trades[monitor][villager][trade][2], trades[monitor][villager][trade][3])
                 monitors[monitor].write(trades[monitor][villager][trade][1])
             end
@@ -174,6 +169,7 @@ local function lookupEnchant()
                             string.lower(userInput)
                         ) then
                         print("monitor: " .. monitor .. ",   villager: " .. villager .. ",   trade: " .. trade)
+                        trades[monitor][villager][trade][2] = colors.red
                         reloadText()
                     end
                 end
@@ -186,8 +182,15 @@ local function loadTextColors()
     for monitor in pairs(trades) do
         for villager in pairs(trades[monitor]) do
             for trade in pairs(trades[monitor][villager]) do
-                trades[monitor][villager][trade][2] = colors.red
-                trades[monitor][villager][trade][2] = colors.black
+                trades[monitor][villager][trade][2] = colors.white
+
+                if trades == 5 then
+                    trades[monitor][villager][trade][3] = colors.purple
+                else
+                    trades[monitor][villager][trade][3] = colors.black
+                end
+
+                trades[monitor][villager][trade][4] = false
             end
         end
     end
