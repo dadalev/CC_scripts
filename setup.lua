@@ -163,18 +163,15 @@ end
 
 local function write(list)
     for monitor,mon in pairs(trades) do
-        print("monitor")
         for villager,vil in pairs(trades[monitor]) do
-            print("villager")
             for trade,tra in pairs(trades[monitor][villager]) do
-                print("trade")
                 if villager == 1 then
                     monitors[monitor].setCursorPos(1,trade)
                 else
                     monitors[monitor].setCursorPos(((villager-1)*10.5),trade)
                 end
                 --monitors[monitor].write("test " .. villager .. " " .. trade)
-                monitors[monitor].write(tostring(trades[monitor][villager][trade]))
+                monitors[monitor].write(trades[monitor][villager][trade])
             end
         end
     end
