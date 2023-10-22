@@ -148,6 +148,10 @@ local trades = {
     },
 }
 
+--hight      12(mc)  49(cc)
+--width side 14(mc)  56(cc)
+--width full 16(mc)  64(cc)
+
 local function setupMonitors()
     for _,mon in pairs(monitors) do
       mon.clear()
@@ -164,7 +168,11 @@ local function write(list)
             print("villager")
             for trade,tra in pairs(trades[monitor][villager]) do
                 print("trade")
-                monitors[monitor].setCursorPos(((villager-1)*10.5),trade)
+                if villager == 1 then
+                    monitors[monitor].setCursorPos(1,trade)
+                else
+                    monitors[monitor].setCursorPos(((villager-1)*10.5),trade)
+                end
                 monitors[monitor].write("test " .. villager .. " " .. trade)
             end
         end
