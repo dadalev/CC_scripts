@@ -182,6 +182,7 @@ local function loopLookupEnchant()
         if userInput == "reload" then
             print("reloaded")
             loadTextColors()
+            reloadText()
         else
             if userInput == "stop" then
                 print("stopping")
@@ -213,7 +214,7 @@ local function loopLookupEnchant()
 end
 
 shell.run("clear")
-print("v1.1.4")
+print("v1.1.5")
 print("type reload => reloads program")
 print("type stop => ends program")
 
