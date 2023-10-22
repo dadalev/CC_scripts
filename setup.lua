@@ -174,7 +174,7 @@ local function write(list)
                     monitors[monitor].setCursorPos(((villager-1)*10.5),trade)
                 end
                 --monitors[monitor].write("test " .. villager .. " " .. trade)
-                monitors[monitor].write(trades[monitor][villager][trade])
+                monitors[monitor].write(tostring(trades[monitor][villager][trade]))
             end
         end
     end
