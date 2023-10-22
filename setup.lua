@@ -157,11 +157,11 @@ end
 clear()
 
 local function write(list)
-    for i,mon in pairs(trades) do
+    for _,mon in pairs(trades) do
         print("monitor")
-        for j,villager in pairs(trades[i]) do
+        for __,villager in pairs(trades[_]) do
             print("villager")
-            for w,trade in pairs(trades[i][j]) do
+            for ___,trade in pairs(trades[_][__]) do
                 write("trade")
             end
         end
