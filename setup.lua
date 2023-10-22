@@ -165,7 +165,7 @@ local function write(list)
             for trade,tra in pairs(trades[monitor][villager]) do
                 print("trade")
                 monitors[monitor].setCursorPos(((villager-1)*10.5),trade)
-                monitors[monitor].write("test" .. trade)
+                monitors[monitor].write("test " .. villager .. " " .. trade)
             end
         end
     end
