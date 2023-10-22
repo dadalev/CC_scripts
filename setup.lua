@@ -127,7 +127,7 @@ local function setupMonitors()
     for _,mon in pairs(monitors) do
       mon.clear()
       mon.setTextScale(1)
-      mon.setTextColor(colors.white)
+      mon.setTextColor(colors.gray)
       mon.setBackgroundColor(colors.black)
     end
 end
