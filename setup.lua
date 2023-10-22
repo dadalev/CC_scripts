@@ -195,7 +195,7 @@ local function loadTextColors()
     end
 end
 
-print("v1.0.3")
+print("v1.0.4")
 loadTextColors()
 setupMonitors()
 reloadText()
