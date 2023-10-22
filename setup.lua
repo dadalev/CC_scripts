@@ -164,7 +164,7 @@ end
 local function changeMonitorColors(textColor, backgroundColor)
     for _,mon in pairs(monitors) do
       mon.setTextColor(textColor)
-      mon.setBackgroundColor(colors.backgroundColor)
+      mon.setBackgroundColor(backgroundColor)
     end
 end
 
