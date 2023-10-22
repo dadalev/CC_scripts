@@ -196,6 +196,7 @@ local function loadTextColors()
     end
 end
 
+print("v1.0.0")
 loadTextColors()
 setupMonitors()
 reloadText()
