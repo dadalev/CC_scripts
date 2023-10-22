@@ -35,15 +35,15 @@ local trades = {
     {
         --121
         {
-            {""},{""},{""},{""},{"Thorns"}
+            {"Fortune"},{""},{""},{""},{"Thorns"}
         },
         --122
         {
-            {""},{""},{""},{""},{"Looting"}
+            {"FireProt"},{""},{""},{""},{"Looting"}
         },
         --123
         {
-            {""},{""},{""},{""},{"Smite"}
+            {"Unbreak"},{"Punch"},{""},{""},{"Smite"}
         },
         --124
         {
@@ -51,26 +51,26 @@ local trades = {
         },
         --125
         {
-            {""},{""},{""},{""},{"Thorns"}
+            {"Pierc"},{"Silk"},{"Feather"},{""},{"Thorns"}
         },
     },
     --21
     {
         --211
         {
-            {""},{""},{""},{""},{"Sweep"}
+            {"Punch"},{"Channel"},{""},{""},{"Sweep"}
         },
         --212
         {
-            {""},{""},{""},{""},{"Unbreak"}
+            {"Multi"},{""},{""},{""},{"Unbreak"}
         },
         --213
         {
-            {""},{""},{""},{""},{"FireAsp"}
+            {"Smite"},{"Channel"},{"Riptide"},{""},{"FireAsp"}
         },
         --214
         {
-            {""},{""},{""},{""},{"Pierc"}
+            {"Respira"},{"Binding"},{"PotatoR"},{""},{"Pierc"}
         },
         --215
         {
@@ -81,69 +81,69 @@ local trades = {
     {
         --221
         {
-            {""},{""},{""},{""},{"Thorns"}
+            {"Depth"},{"Knockba"},{""},{""},{"Thorns"}
         },
         --222
         {
-            {""},{""},{""},{""},{"Loyalty"}
+            {"Looting"},{"Protect"},{""},{""},{"Loyalty"}
         },
         --223
         {
-            {""},{""},{""},{""},{"Feather"}
+            {"Impalin"},{""},{""},{""},{"Feather"}
         },
         --224
         {
-            {""},{""},{""},{""},{"Power"}
+            {"Power"},{"Vanish"},{""},{""},{"Power"}
         },
         --225
         {
-            {""},{""},{""},{""},{"BaneOfA"}
+            {"Binding"},{"FireAsp"},{""},{""},{"BaneOfA"}
         },
     },
     --31
     {
         --311
         {
-            {""},{""},{""},{""},{"Pierc"}
+            {"Thorns"},{""},{""},{""},{"Pierc"}
         },
         --312
         {
-            {""},{""},{""},{""},{"Punch"}
+            {"LuckOfTS"},{"Raiders"},{""},{""},{"Punch"}
         },
         --313
         {
-            {""},{""},{""},{""},{"Punch"}
+            {"PProt"},{"AquaAfi"},{""},{""},{"Punch"}
         },
         --314
         {
-            {""},{""},{""},{""},{"Loyalty"}
+            {"Flame"},{"Vanish"},{"Respira"},{""},{"Loyalty"}
         },
         --315
         {
-            {""},{""},{""},{""},{"Impalin"}
+            {"Backsta"},{"Vanish"},{""},{""},{"Impalin"}
         },
     },
     --32
     {
         --321
         {
-            {""},{""},{""},{""},{"LuckOf"}
+            {"Loyalty"},{""},{""},{""},{"LuckOfTS"}
         },
         --322
         {
-            {""},{""},{""},{""},{"Pierc"}
+            {"Multi"},{"Lure"},{""},{""},{"Pierc"}
         },
         --323
         {
-            {""},{""},{""},{""},{"Fortune"}
+            {"QuickCh"},{"Mending"},{""},{""},{"Fortune"}
         },
         --324
         {
-            {""},{""},{""},{""},{"Loyalty"}
+            {"Mystica"},{"Stasis"},{""},{""},{"Loyalty"}
         },
         --325
         {
-            {""},{""},{""},{""},{"Lure"}
+            {"BaneOfA"},{""},{""},{""},{"Lure"}
         },
     },
 }
@@ -171,7 +171,7 @@ local function write(list)
                     monitors[monitor].setCursorPos(((villager-1)*10.5),trade)
                 end
                 --monitors[monitor].write("test " .. villager .. " " .. trade)
-                monitors[monitor].write(trades[monitor][villager][trade])
+                monitors[monitor].write(trades[monitor][villager][trade][2])
             end
         end
     end
