@@ -8,140 +8,110 @@ local monitors = {
 }
 
 local trades = {
-    --11
+    --1
     {
-        --111
         {
-            {"Fire", colors.red, colors.gray},{"Sweep"},{""},{""},{"Riptide"}
+            {"Fire"},{"Sweep"},{""},{""},{"Riptide"}
         },
-        --112
         {
             {"Sharp"},{"AquaAfi"},{""},{""},{"Fortune"}
         },
-        --113
         {
             {"Infinit"},{""},{""},{""},{"Effi"}
         },
-        --114
         {
             {"BlastPr"},{"Multi"},{"Mending"},{""},{"Power"}
         },
-        --115
         {
             {"Effi"},{"FrostWa"},{""},{""},{"Impalin"}
         },
     },
-    --12
+    --2
     {
-        --121
         {
             {"Fortune"},{""},{""},{""},{"Thorns"}
         },
-        --122
         {
             {"FireProt"},{""},{""},{""},{"Looting"}
         },
-        --123
         {
             {"Unbreak"},{"Punch"},{""},{""},{"Smite"}
         },
-        --124
         {
             {""},{""},{""},{""},{"Sharp"}
         },
-        --125
         {
             {"Pierc"},{"Silk"},{"Feather"},{""},{"Thorns"}
         },
     },
-    --21
+    --3
     {
-        --211
         {
             {"Punch"},{"Channel"},{""},{""},{"Sweep"}
         },
-        --212
         {
             {"Multi"},{""},{""},{""},{"Unbreak"}
         },
-        --213
         {
             {"Smite"},{"Channel"},{"Riptide"},{""},{"FireAsp"}
         },
-        --214
         {
             {"Respira"},{"Binding"},{"PotatoR"},{""},{"Pierc"}
         },
-        --215
         {
             {""},{""},{""},{""},{"Knockba"}
         },
     },
-    --22
+    --4
     {
-        --221
         {
             {"Depth"},{"Knockba"},{""},{""},{"Thorns"}
         },
-        --222
         {
             {"Looting"},{"Protect"},{""},{""},{"Loyalty"}
         },
-        --223
         {
             {"Impalin"},{""},{""},{""},{"Feather"}
         },
-        --224
         {
             {"Power"},{"Vanish"},{""},{""},{"Power"}
         },
-        --225
         {
             {"Binding"},{"FireAsp"},{""},{""},{"BaneOfA"}
         },
     },
-    --31
+    --5
     {
-        --311
         {
             {"Thorns"},{""},{""},{""},{"Pierc"}
         },
-        --312
         {
             {"LuckOfTS"},{"Raiders"},{""},{""},{"Punch"}
         },
-        --313
         {
             {"PProt"},{"AquaAfi"},{""},{""},{"Punch"}
         },
-        --314
         {
             {"Flame"},{"Vanish"},{"Respira"},{""},{"Loyalty"}
         },
-        --315
         {
             {"Backsta"},{"Vanish"},{""},{""},{"Impalin"}
         },
     },
-    --32
+    --6
     {
-        --321
         {
             {"Loyalty"},{""},{""},{""},{"LuckOfTS"}
         },
-        --322
         {
             {"Multi"},{"Lure"},{""},{""},{"Pierc"}
         },
-        --323
         {
             {"QuickCh"},{"Mending"},{""},{""},{"Fortune"}
         },
-        --324
         {
             {"Mystica"},{"Stasis"},{""},{""},{"Loyalty"}
         },
-        --325
         {
             {"BaneOfA"},{""},{""},{""},{"Lure"}
         },
@@ -204,7 +174,7 @@ local function lookupEnchant()
                             string.lower(userInput)
                         ) then
                         print("monitor: " .. monitor .. ",   villager: " .. villager .. ",   trade: " .. trade)
-
+                        reloadText()
                     end
                 end
             end
@@ -212,6 +182,18 @@ local function lookupEnchant()
     end
 end
 
+local function loadTextColors()
+    for monitor in pairs(trades) do
+        for villager in pairs(trades[monitor]) do
+            for trade in pairs(trades[monitor][villager]) do
+                trades[monitor][villager][trade][2] = colors.red
+                trades[monitor][villager][trade][2] = colors.black
+            end
+        end
+    end
+end
+
+loadTextColors()
 setupMonitors()
 reloadText()
 lookupEnchant()
