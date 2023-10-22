@@ -168,7 +168,13 @@ local function lookupEnchant()
                             string.lower(userInput)
                         ) then
                         print("monitor: " .. monitor .. ",   villager: " .. villager .. ",   trade: " .. trade)
-                        trades[monitor][villager][trade][2] = colors.red
+
+                        if trades[monitor][villager][trade][2] == colors.purple then
+                            trades[monitor][villager][trade][2] = colors.orange
+                        else
+                            trades[monitor][villager][trade][2] = colors.red
+                        end
+
                         reloadText()
                     end
                 end
@@ -195,7 +201,7 @@ local function loadTextColors()
     end
 end
 
-print("v1.0.4")
+print("v1.0.5")
 loadTextColors()
 setupMonitors()
 reloadText()
