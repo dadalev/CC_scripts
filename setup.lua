@@ -180,9 +180,11 @@ local function loopLookupEnchant()
         local userInput = io.read()
 
         if userInput == "reload" then
+            print("reloaded")
             loadTextColors()
         else
             if userInput == "stop" then
+                print("stopping")
                 runLoop = false
             else
                 for monitor in pairs(trades) do
@@ -211,7 +213,7 @@ local function loopLookupEnchant()
 end
 
 shell.run("clear")
-print("v1.1.3")
+print("v1.1.4")
 print("type reload => reloads program")
 print("type stop => ends program")
 
