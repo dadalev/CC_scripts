@@ -212,7 +212,10 @@ local function loopLookupEnchant()
     end
 end
 
-print("v1.0.6")
+print("v1.1.0")
+print("reload => reloads program")
+print("stop => ends program")
+
 loadTextColors()
 setupMonitors()
 reloadText()
