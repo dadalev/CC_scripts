@@ -183,9 +183,8 @@ local function reloadText()
                 else
                     changeColors(colors.white, colors.black)
                 end
-                if not trades[monitor][villager][trade][2] == "" then
-                    changeColors(trades[monitor][villager][trade][2], trades[monitor][villager][trade][3])
-                end
+
+                changeColors(trades[monitor][villager][trade][2], trades[monitor][villager][trade][3])
                 monitors[monitor].write(trades[monitor][villager][trade][1])
             end
         end
@@ -205,7 +204,7 @@ local function lookupEnchant()
                             string.lower(userInput)
                         ) then
                         print("monitor: " .. monitor .. ",   villager: " .. villager .. ",   trade: " .. trade)
-                        reloadText()
+
                     end
                 end
             end
