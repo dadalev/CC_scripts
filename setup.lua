@@ -12,7 +12,7 @@ local trades = {
     {
         --111
         {
-            {"Fire"},{"Sweep"},{""},{""},{"Riptide"}
+            {"Fire", colors.red, colors.gray},{"Sweep"},{""},{""},{"Riptide"}
         },
         --112
         {
@@ -148,9 +148,9 @@ local trades = {
     },
 }
 
---hight      12(mc)  49(cc)
---width side 14(mc)  56(cc)
---width full 16(mc)  64(cc)
+--trades[monitor][villager][trade][1] enchant
+--trades[monitor][villager][trade][2] textColor
+--trades[monitor][villager][trade][3] backgroundColor
 
 local function setupMonitors()
     for _,mon in pairs(monitors) do
@@ -161,7 +161,7 @@ local function setupMonitors()
     end
 end
 
-local function changeMonitorColors(textColor, backgroundColor)
+local function changeColors(textColor, backgroundColor)
     for _,mon in pairs(monitors) do
       mon.setTextColor(textColor)
       mon.setBackgroundColor(backgroundColor)
@@ -169,9 +169,9 @@ local function changeMonitorColors(textColor, backgroundColor)
 end
 
 local function loadText()
-    for monitor,mon in pairs(trades) do
-        for villager,vil in pairs(trades[monitor]) do
-            for trade,tra in pairs(trades[monitor][villager]) do
+    for monitor in pairs(trades) do
+        for villager in pairs(trades[monitor]) do
+            for trade in pairs(trades[monitor][villager]) do
                 if villager == 1 then
                     monitors[monitor].setCursorPos(1,trade)
                 else
@@ -179,11 +179,13 @@ local function loadText()
                 end
 
                 if trade == 5 then
-                    changeMonitorColors(colors.purple, colors.black)
+                    changeColors(colors.purple, colors.black)
                 else
-                    changeMonitorColors(colors.white, colors.black)
+                    changeColors(colors.white, colors.black)
                 end
-
+                if not trades[monitor][villager][trade][2] == "" then
+                    changeColors(trades[monitor][villager][trade][2], trades[monitor][villager][trade][3])
+                end
                 monitors[monitor].write(trades[monitor][villager][trade][1])
             end
         end
@@ -195,10 +197,13 @@ local function lookupEnchant()
         write("Lookup enchant: ")
         local userInput = io.read()
 
-        for monitor,mon in pairs(trades) do
-            for villager,vil in pairs(trades[monitor]) do
-                for trade,tra in pairs(trades[monitor][villager]) do
-                    if string.match(trades[monitor][villager][trade][1], userInput) then
+        for monitor in pairs(trades) do
+            for villager in pairs(trades[monitor]) do
+                for trade in pairs(trades[monitor][villager]) do
+                    if string.match(
+                            string.lower(trades[monitor][villager][trade][1]), 
+                            string.lower(userInput)
+                        ) then
                         print("monitor: " .. monitor .. ",   villager: " .. villager .. ",   trade: " .. trade)
                     end
                 end
