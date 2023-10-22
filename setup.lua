@@ -191,14 +191,16 @@ local function loadText()
 end
 
 local function lookupEnchant()
-    
-    local userInput = io.read()
-    write("Lookup enchant: ")
-    for monitor,mon in pairs(trades) do
-        for villager,vil in pairs(trades[monitor]) do
-            for trade,tra in pairs(trades[monitor][villager]) do
-                if string.match(trades[monitor][villager][trade][1], userInput) then
-                    print("monitor: " .. monitor .. ",   villager: " .. villager .. ",   trade: " .. trade)
+    while true do
+        write("Lookup enchant: ")
+        local userInput = io.read()
+
+        for monitor,mon in pairs(trades) do
+            for villager,vil in pairs(trades[monitor]) do
+                for trade,tra in pairs(trades[monitor][villager]) do
+                    if string.match(trades[monitor][villager][trade][1], userInput) then
+                        print("monitor: " .. monitor .. ",   villager: " .. villager .. ",   trade: " .. trade)
+                    end
                 end
             end
         end
@@ -207,5 +209,4 @@ end
 
 setupMonitors()
 loadText()
-
 lookupEnchant()
