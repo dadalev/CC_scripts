@@ -168,7 +168,7 @@ local function changeColors(textColor, backgroundColor)
     end
 end
 
-local function loadText()
+local function reloadText()
     for monitor in pairs(trades) do
         for villager in pairs(trades[monitor]) do
             for trade in pairs(trades[monitor][villager]) do
@@ -205,6 +205,7 @@ local function lookupEnchant()
                             string.lower(userInput)
                         ) then
                         print("monitor: " .. monitor .. ",   villager: " .. villager .. ",   trade: " .. trade)
+                        reloadText()
                     end
                 end
             end
@@ -213,5 +214,5 @@ local function lookupEnchant()
 end
 
 setupMonitors()
-loadText()
+reloadText()
 lookupEnchant()
