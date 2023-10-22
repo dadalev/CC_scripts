@@ -162,7 +162,7 @@ local function write(list)
         for __,villager in pairs(trades[_]) do
             print("villager")
             for _,mon in pairs(trades[_][__]) do
-                print("trade")
+                write("trade")
             end
         end
     end
