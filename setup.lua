@@ -179,9 +179,9 @@ local function write(list)
                 end
 
                 if trade == 5 then
-                    changeMonitorColors(colors.white, colors.black)
+                    changeMonitorColors(colors.purple, colors.black)
                 else
-                    changeMonitorColors(colors.red, colors.gray)
+                    changeMonitorColors(colors.white, colors.black)
                 end
 
                 monitors[monitor].write(trades[monitor][villager][trade][1])
