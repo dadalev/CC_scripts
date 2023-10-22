@@ -155,10 +155,39 @@ local function reloadText()
     end
 end
 
-local function lookupEnchant()
-    while true do
+local function loadTextColors()
+    for monitor in pairs(trades) do
+        for villager in pairs(trades[monitor]) do
+            for trade in pairs(trades[monitor][villager]) do
+                if trade == 5 then
+                    trades[monitor][villager][trade][2] = colors.purple
+                else
+                    trades[monitor][villager][trade][2] = colors.yellow
+                end
+
+                trades[monitor][villager][trade][3] = colors.black
+
+                trades[monitor][villager][trade][4] = false
+            end
+        end
+    end
+end
+
+local function loopLookupEnchant()
+    local runLoop = true
+    while runLoop do
         write("Lookup enchant: ")
         local userInput = io.read()
+
+        if userInput == "reload" then
+            loadTextColors()
+            return
+        end
+
+        if userInput == "stop" then
+            runLoop = false
+            return
+        end
 
         for monitor in pairs(trades) do
             for villager in pairs(trades[monitor]) do
@@ -183,26 +212,8 @@ local function lookupEnchant()
     end
 end
 
-local function loadTextColors()
-    for monitor in pairs(trades) do
-        for villager in pairs(trades[monitor]) do
-            for trade in pairs(trades[monitor][villager]) do
-                if trade == 5 then
-                    trades[monitor][villager][trade][2] = colors.purple
-                else
-                    trades[monitor][villager][trade][2] = colors.yellow
-                end
-
-                trades[monitor][villager][trade][3] = colors.black
-
-                trades[monitor][villager][trade][4] = false
-            end
-        end
-    end
-end
-
-print("v1.0.5")
+print("v1.0.6")
 loadTextColors()
 setupMonitors()
 reloadText()
-lookupEnchant()
+loopLookupEnchant()
