@@ -185,7 +185,7 @@ local function loopLookupEnchant()
             reloadText()
         else
             if userInput == "stop" then
-                print("stopping")
+                print("stopped")
                 runLoop = false
             else
                 for monitor in pairs(trades) do
@@ -214,7 +214,7 @@ local function loopLookupEnchant()
 end
 
 shell.run("clear")
-print("v1.1.5")
+print("v1.1.6")
 print("type reload => reloads program")
 print("type stop => ends program")
 
