@@ -179,32 +179,35 @@ local function loopLookupEnchant()
         write("Lookup enchant: ")
         local userInput = io.read()
 
-        if userInput == "reload" then
-            print("reloaded")
-            loadTextColors()
-            reloadText()
-        else
+        if userInput == "reload" or userInput == "reset" or userInput == "stop" then
+            if userInput == "reload" then
+                shell.run("clear")
+                
+                print("reloaded v1.1.6")
+                print("type reload => reloads program")
+                print("type stop => ends program")
+
+                loadTextColors()
+                reloadText()
+            end
+
             if userInput == "stop" then
                 print("stopped")
                 runLoop = false
-            else
-                for monitor in pairs(trades) do
-                    for villager in pairs(trades[monitor]) do
-                        for trade in pairs(trades[monitor][villager]) do
-                            if string.match(
-                                    string.lower(trades[monitor][villager][trade][1]), 
-                                    string.lower(userInput)
-                                ) then
-                                print("monitor: " .. monitor .. ",   villager: " .. villager .. ",   trade: " .. trade)
+            end
+        else
+            for monitor in pairs(trades) do
+                for villager in pairs(trades[monitor]) do
+                    for trade in pairs(trades[monitor][villager]) do
+                        if string.match(string.lower(trades[monitor][villager][trade][1]), string.lower(userInput)) then
+                            print("monitor: " .. monitor .. ",   villager: " .. villager .. ",   trade: " .. trade)
 
-                                if trades[monitor][villager][trade][2] == colors.purple then
-                                    trades[monitor][villager][trade][2] = colors.orange
-                                else
-                                    trades[monitor][villager][trade][2] = colors.red
-                                end
-
-                                reloadText()
+                            if trades[monitor][villager][trade][2] == colors.purple then
+                                trades[monitor][villager][trade][2] = colors.orange
+                            else
+                                trades[monitor][villager][trade][2] = colors.red
                             end
+                            reloadText()
                         end
                     end
                 end
@@ -214,7 +217,7 @@ local function loopLookupEnchant()
 end
 
 shell.run("clear")
-print("v1.1.6")
+print("start v1.1.6")
 print("type reload => reloads program")
 print("type stop => ends program")
 
