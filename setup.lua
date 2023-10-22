@@ -148,24 +148,27 @@ local trades = {
     },
 }
 
-local function clear()
+local function setupMonitors()
     for _,mon in pairs(monitors) do
       mon.clear()
+      mon.setTextScale(1)
+      mon.setBackgroundColor(colors.black)
+      mon.setTextColor(colors.white)
     end
 end
 
-clear()
-
 local function write(list)
-    for _,mon in pairs(trades) do
+    for monitor,mon in pairs(trades) do
         print("monitor")
-        for __,villager in pairs(trades[_]) do
+        for villager,vil in pairs(trades[monitor]) do
             print("villager")
-            for ___,trade in pairs(trades[_][__]) do
-                write("trade")
+            for trade,tra in pairs(trades[monitor][villager]) do
+                print("trade")
+                monitors[monitor].setCursor(2,trade)
             end
         end
     end
 end
 
+setupMonitors()
 write(trades)
