@@ -1,4 +1,4 @@
-local version = "v1.1.7"
+local version = "v1.1.8"
 
 local monitors = {
     peripheral.wrap("monitor_9"),
@@ -9,9 +9,11 @@ local monitors = {
     peripheral.wrap("monitor_14")
 }
 
+--[Monitor][Villager][Trade][name, textColor, backgroundColor, boolean]
 local trades = {
-    --1
+    --Monitor 1
     {
+        --Villager 1
         {
             {"Fire"},{"Sweep"},{""},{""},{"Riptide"}
         },
@@ -28,7 +30,7 @@ local trades = {
             {"Effi"},{"FrostWa"},{""},{""},{"Impalin"}
         },
     },
-    --2
+    --Monitor 2
     {
         {
             {"Fortune"},{""},{""},{""},{"Thorns"}
@@ -46,7 +48,7 @@ local trades = {
             {"Pierc"},{"Silk"},{"Feather"},{""},{"Thorns"}
         },
     },
-    --3
+    --Monitor 3
     {
         {
             {"Punch"},{"Channel"},{""},{""},{"Sweep"}
@@ -64,7 +66,7 @@ local trades = {
             {""},{""},{""},{""},{"Knockba"}
         },
     },
-    --4
+    --Monitor 4
     {
         {
             {"Depth"},{"Knockba"},{""},{""},{"Thorns"}
@@ -82,7 +84,7 @@ local trades = {
             {"Binding"},{"FireAsp"},{""},{""},{"BaneOfA"}
         },
     },
-    --5
+    --Monitor 5
     {
         {
             {"Thorns"},{""},{""},{""},{"Pierc"}
@@ -100,7 +102,7 @@ local trades = {
             {"Backsta"},{"Vanish"},{""},{""},{"Impalin"}
         },
     },
-    --6
+    --Monitor 6
     {
         {
             {"Loyalty"},{""},{""},{""},{"LuckOfTS"}
